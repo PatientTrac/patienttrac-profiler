@@ -6,6 +6,8 @@ import CheckoutSuccess from './pages/CheckoutSuccess'
 import Privacy         from './pages/Privacy'
 import Terms           from './pages/Terms'
 import Hipaa           from './pages/Hipaa'
+import Contact         from './pages/Contact'
+import Admin           from './pages/Admin'
 
 export default function App() {
   return (
@@ -17,6 +19,8 @@ export default function App() {
       <Route path="/privacy"          element={<Privacy />} />
       <Route path="/terms"            element={<Terms />} />
       <Route path="/hipaa"            element={<Hipaa />} />
+      <Route path="/contact"          element={<Contact />} />
+      <Route path="/admin"            element={<Admin />} />
       <Route path="*"                 element={<ProfilerApp />} />
     </Routes>
   )
