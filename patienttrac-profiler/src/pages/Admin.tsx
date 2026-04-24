@@ -390,6 +390,10 @@ export default function Admin() {
             style={{ fontSize: 12, color: C.cyan, textDecoration: 'none', fontFamily: 'DM Mono,monospace' }}>
             SCHEDULING APP ↗
           </a>
+          <a href="/admin/panel"
+            style={{ fontSize: 12, color: C.gold, textDecoration: 'none', fontFamily: 'DM Mono,monospace' }}>
+            ADMIN PANEL ↗
+          </a>
           <button onClick={signOut} style={{ background: 'transparent', border: `1px solid ${C.subtle}`, color: C.muted, padding: '5px 12px', borderRadius: 5, cursor: 'pointer', fontSize: 12, fontFamily: 'DM Mono,monospace' }}>
             SIGN OUT
           </button>

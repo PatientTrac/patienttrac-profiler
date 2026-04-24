@@ -67,7 +67,7 @@ function Nav() {
 
       {/* Desktop links */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 28 }} className="nav-desktop">
-        {[['Features', '#features'], ['How It Works', '#how'], ['Pricing', '/pricing'], ['Contact', '/contact']].map(([label, href]) => (
+        {[['Features', '#features'], ['AI Features', '#ai'], ['How It Works', '#how'], ['Pricing', '/pricing'], ['Contact', '/contact']].map(([label, href]) => (
           <a key={label} href={href} style={{ color: C.muted, textDecoration: 'none', fontSize: 14, fontWeight: 500, transition: 'color 0.2s' }}
             onMouseEnter={e => (e.currentTarget.style.color = C.gold)}
             onMouseLeave={e => (e.currentTarget.style.color = C.muted)}>
@@ -109,16 +109,16 @@ function Hero() {
 
       {/* Floating data badges */}
       <div style={{ position: 'absolute', top: '20%', left: '8%', animation: 'float 6s ease-in-out infinite', zIndex: 1 }}>
-        <DataBadge icon="🔒" label="HIPAA" value="Compliant" color={C.green} />
+        <DataBadge icon="🤖" label="AI ASSISTANT" value="Voice + Text" color={C.cyan} />
       </div>
       <div style={{ position: 'absolute', top: '35%', right: '6%', animation: 'float 8s ease-in-out infinite 1s', zIndex: 1 }}>
-        <DataBadge icon="⚡" label="SYNC" value="Real-time" color={C.cyan} />
+        <DataBadge icon="✍️" label="E-SIGNATURE" value="Legally Binding" color={C.green} />
       </div>
       <div style={{ position: 'absolute', bottom: '28%', left: '5%', animation: 'float 7s ease-in-out infinite 2s', zIndex: 1 }}>
-        <DataBadge icon="🌐" label="LANGUAGES" value="EN · ES · FR" color={C.gold} />
+        <DataBadge icon="🎤" label="VOICE INPUT" value="EN · ES · FR" color={C.gold} />
       </div>
       <div style={{ position: 'absolute', bottom: '32%', right: '7%', animation: 'float 9s ease-in-out infinite 0.5s', zIndex: 1 }}>
-        <DataBadge icon="📱" label="DEVICE" value="Mobile-First" color={C.amber} />
+        <DataBadge icon="🔒" label="HIPAA" value="Compliant" color={C.amber} />
       </div>
 
       <div style={{ position: 'relative', zIndex: 2, maxWidth: 820 }}>
@@ -238,11 +238,25 @@ function Features() {
       tags: ['Real-time', 'Zero Manual Entry', 'Live Database'],
     },
     {
+      icon: '🤖',
+      title: 'AI Patient Assistant',
+      desc: 'Claude AI is embedded directly in the intake form. Patients ask questions in plain language — "What is a group number?" or "Do I include vitamins?" — and get instant, empathetic, clinically-aware answers in their own language.',
+      color: C.cyan,
+      tags: ['Claude AI', 'Real-time Help', 'EN · ES · FR'],
+    },
+    {
+      icon: '🎤',
+      title: 'Voice-to-Text Input',
+      desc: 'Patients speak their answers instead of typing. Tap the mic, say it out loud, and the AI transcribes it instantly. Works in English, Spanish, and French. Ideal for elderly patients, low-literacy patients, or anyone completing forms hands-free.',
+      color: '#a78bfa',
+      tags: ['Speech Recognition', 'Hands-Free', 'Any Language'],
+    },
+    {
       icon: '✍️',
-      title: 'E-Signature Consent Forms',
-      desc: 'Six built-in consent forms including treatment, HIPAA acknowledgment, financial responsibility, and telehealth. Legally binding electronic signatures compliant with the E-SIGN Act.',
+      title: 'Legal E-Signature Consent Forms',
+      desc: 'Patients sign directly on their phone screen with a finger — no printing, no scanning, no mailing. Six built-in consent forms (Treatment, HIPAA, Financial, Telehealth, Photo, Psychiatric) plus unlimited custom forms. Compliant with the E-SIGN Act.',
       color: C.green,
-      tags: ['E-SIGN Act', 'HIPAA', 'Legally Binding'],
+      tags: ['E-SIGN Act Compliant', 'Custom Forms', 'Timestamped'],
     },
     {
       icon: '🌐',
@@ -266,11 +280,11 @@ function Features() {
       tags: ['No Account Needed', '48-hr Link', 'Auto-Save'],
     },
     {
-      icon: '🤖',
-      title: 'AI-Ready Intake Data',
-      desc: "Structured data feeds directly into PatientTracForge's AI features — no-show prediction, billing AI, and the smart intake assistant that generates clinical summaries for your providers.",
+      icon: '🧠',
+      title: 'AI Clinical Summary',
+      desc: "After intake, the AI generates a structured clinical summary for your provider — chief complaint, key symptoms, medication risks, allergy flags, and suggested ICD-10 codes. Provider walks in prepared, not surprised.",
       color: C.cyan,
-      tags: ['No-Show AI', 'Billing AI', 'Clinical Summary'],
+      tags: ['Clinical Summary', 'ICD-10 Codes', 'Provider Ready'],
     },
     {
       icon: '🏥',
@@ -334,6 +348,228 @@ function FeatureCard({ icon, title, desc, color, tags, delay }: { icon: string; 
   )
 }
 
+// ── Power Features Spotlight ──────────────────────────────────────────────
+function PowerFeatures() {
+  const { ref: r1, inView: v1 } = useInView(0.15)
+  const { ref: r2, inView: v2 } = useInView(0.15)
+  const { ref: r3, inView: v3 } = useInView(0.15)
+
+  return (
+    <section id="ai" style={{ background: C.navy900, padding: '100px 24px', borderTop: `1px solid rgba(201,169,110,0.08)` }}>
+      <div style={{ maxWidth: 1140, margin: '0 auto' }}>
+
+        <div style={{ textAlign: 'center', marginBottom: 72 }}>
+          <div style={{ fontFamily: 'DM Mono,monospace', fontSize: 11, color: C.cyan, letterSpacing: '0.15em', marginBottom: 16 }}>✦ SIGNATURE CAPABILITIES</div>
+          <h2 style={{ fontFamily: 'Rajdhani,sans-serif', fontWeight: 700, fontSize: 'clamp(32px,5vw,52px)', color: C.text, lineHeight: 1.1, marginBottom: 16 }}>
+            Three features that change<br /><span style={{ color: C.cyan }}>everything for your patients.</span>
+          </h2>
+          <p style={{ color: C.muted, fontSize: 18, maxWidth: 560, margin: '0 auto' }}>
+            No other intake platform combines AI guidance, voice input, and e-signatures in one patient-facing experience.
+          </p>
+        </div>
+
+        {/* ── Feature 1: AI Assistant ── */}
+        <div ref={r1} style={{
+          display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: 48, alignItems: 'center', marginBottom: 80,
+          opacity: v1 ? 1 : 0, transform: v1 ? 'translateY(0)' : 'translateY(32px)',
+          transition: 'all 0.6s ease',
+        }}>
+          {/* Visual mockup */}
+          <div style={{ background: C.navy800, border: `1px solid rgba(0,212,255,0.2)`, borderRadius: 16, padding: 24, boxShadow: `0 0 60px rgba(0,212,255,0.08)` }}>
+            {/* Chat header */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20, paddingBottom: 16, borderBottom: `1px solid rgba(0,212,255,0.1)` }}>
+              <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'rgba(0,212,255,0.12)', border: '1px solid rgba(0,212,255,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 }}>🤖</div>
+              <div>
+                <div style={{ fontFamily: 'Rajdhani,sans-serif', fontWeight: 700, fontSize: 14, color: C.cyan }}>PatientTrac Assistant</div>
+                <div style={{ fontSize: 10, color: C.green, fontFamily: 'DM Mono,monospace', display: 'flex', alignItems: 'center', gap: 4 }}>
+                  <span style={{ width: 5, height: 5, borderRadius: '50%', background: C.green, display: 'inline-block' }} /> ONLINE
+                </div>
+              </div>
+            </div>
+            {/* Chat bubbles */}
+            {[
+              { role: 'user',      text: 'What is a "group number" on my insurance card?' },
+              { role: 'assistant', text: 'Great question! The group number identifies your employer\'s insurance plan. It\'s usually labeled "Group #" or "Grp" on the front of your card — often a 4-9 digit number.' },
+              { role: 'user',      text: '¿Debo incluir mis vitaminas?' },
+              { role: 'assistant', text: 'Sí, por favor incluya todas las vitaminas y suplementos que toma regularmente. Esto ayuda a su médico a evitar interacciones con medicamentos.' },
+            ].map((msg, i) => (
+              <div key={i} style={{ display: 'flex', flexDirection: msg.role === 'user' ? 'row-reverse' : 'row', gap: 8, marginBottom: 12, alignItems: 'flex-end' }}>
+                {msg.role === 'assistant' && <div style={{ fontSize: 14, flexShrink: 0 }}>🤖</div>}
+                <div style={{
+                  maxWidth: '80%', padding: '10px 13px', fontSize: 13, lineHeight: 1.55,
+                  background: msg.role === 'user' ? 'rgba(0,212,255,0.1)' : C.navy700,
+                  border: `1px solid ${msg.role === 'user' ? 'rgba(0,212,255,0.2)' : 'rgba(201,169,110,0.08)'}`,
+                  borderRadius: msg.role === 'user' ? '12px 12px 4px 12px' : '12px 12px 12px 4px',
+                  color: msg.role === 'user' ? C.cyan : C.text,
+                }}>
+                  {msg.text}
+                </div>
+              </div>
+            ))}
+            {/* Input bar */}
+            <div style={{ marginTop: 16, display: 'flex', gap: 8, padding: '10px 12px', background: C.navy700, border: `1px solid ${C.subtle}`, borderRadius: 10 }}>
+              <span style={{ fontSize: 13, color: C.subtle, flex: 1 }}>Ask anything about your intake form...</span>
+              <span style={{ fontSize: 18 }}>🎤</span>
+              <div style={{ width: 30, height: 30, borderRadius: 7, background: C.gold, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, color: C.navy950 }}>↑</div>
+            </div>
+          </div>
+          {/* Copy */}
+          <div>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(0,212,255,0.08)', border: '1px solid rgba(0,212,255,0.2)', borderRadius: 20, padding: '5px 14px', fontSize: 10, color: C.cyan, fontFamily: 'DM Mono,monospace', letterSpacing: '0.1em', marginBottom: 20 }}>🤖 POWERED BY CLAUDE AI</div>
+            <h3 style={{ fontFamily: 'Rajdhani,sans-serif', fontWeight: 700, fontSize: 'clamp(28px,4vw,40px)', color: C.text, lineHeight: 1.1, marginBottom: 16 }}>
+              AI assistant that speaks<br /><span style={{ color: C.cyan }}>your patient's language.</span>
+            </h3>
+            <p style={{ color: C.muted, fontSize: 16, lineHeight: 1.8, marginBottom: 28 }}>
+              Patients get confused by medical forms. Our Claude-powered assistant answers their questions in real time — in plain English, Spanish, or French. What's a deductible? Should I list my supplements? What does HIPAA mean? Answered instantly, accurately, empathetically.
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+              {[
+                ['Understands the current section', C.green],
+                ['Answers in patient\'s chosen language', C.green],
+                ['Never diagnoses — routes emergencies to 911', C.green],
+                ['Reduces intake abandonment by 40%', C.cyan],
+              ].map(([text, color]) => (
+                <div key={text as string} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 14, color: C.muted }}>
+                  <span style={{ color: color as string, flexShrink: 0 }}>✓</span>{text}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* ── Feature 2: Voice Input ── */}
+        <div ref={r2} style={{
+          display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: 48, alignItems: 'center', marginBottom: 80,
+          opacity: v2 ? 1 : 0, transform: v2 ? 'translateY(0)' : 'translateY(32px)',
+          transition: 'all 0.6s ease 0.1s',
+        }}>
+          {/* Copy — left on this row */}
+          <div>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(167,139,250,0.08)', border: '1px solid rgba(167,139,250,0.2)', borderRadius: 20, padding: '5px 14px', fontSize: 10, color: '#a78bfa', fontFamily: 'DM Mono,monospace', letterSpacing: '0.1em', marginBottom: 20 }}>🎤 WEB SPEECH API</div>
+            <h3 style={{ fontFamily: 'Rajdhani,sans-serif', fontWeight: 700, fontSize: 'clamp(28px,4vw,40px)', color: C.text, lineHeight: 1.1, marginBottom: 16 }}>
+              Speak your answers.<br /><span style={{ color: '#a78bfa' }}>No typing required.</span>
+            </h3>
+            <p style={{ color: C.muted, fontSize: 16, lineHeight: 1.8, marginBottom: 28 }}>
+              Tap the microphone icon on any field and speak naturally. The AI transcribes your words instantly. Perfect for elderly patients who struggle with small keyboards, patients completing forms while driving (as a passenger!), or anyone who thinks faster than they type.
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+              {[
+                ['Works on iOS Safari, Chrome, Android', '#a78bfa'],
+                ['English, Spanish, and French voice recognition', '#a78bfa'],
+                ['AI reads responses aloud (text-to-speech)', '#a78bfa'],
+                ['No app download — works in the browser', C.green],
+              ].map(([text, color]) => (
+                <div key={text as string} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 14, color: C.muted }}>
+                  <span style={{ color: color as string, flexShrink: 0 }}>✓</span>{text}
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* Visual mockup */}
+          <div style={{ background: C.navy800, border: `1px solid rgba(167,139,250,0.2)`, borderRadius: 16, padding: 32, textAlign: 'center', boxShadow: `0 0 60px rgba(167,139,250,0.06)` }}>
+            {/* Listening animation */}
+            <div style={{ marginBottom: 28 }}>
+              <div style={{ width: 80, height: 80, borderRadius: '50%', background: 'rgba(167,139,250,0.15)', border: '2px solid rgba(167,139,250,0.4)', margin: '0 auto 16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 36, position: 'relative' }}>
+                🎤
+                {/* Pulse rings */}
+                <div style={{ position: 'absolute', inset: -8, borderRadius: '50%', border: '1px solid rgba(167,139,250,0.25)', animation: 'float 2s ease-in-out infinite' }} />
+                <div style={{ position: 'absolute', inset: -16, borderRadius: '50%', border: '1px solid rgba(167,139,250,0.12)', animation: 'float 2s ease-in-out infinite 0.3s' }} />
+              </div>
+              <div style={{ fontFamily: 'DM Mono,monospace', fontSize: 12, color: '#a78bfa', letterSpacing: '0.15em' }}>LISTENING...</div>
+            </div>
+            {/* Waveform bars */}
+            <div style={{ display: 'flex', gap: 4, justifyContent: 'center', alignItems: 'flex-end', height: 48, marginBottom: 24 }}>
+              {[20, 35, 55, 40, 65, 30, 50, 70, 45, 60, 35, 25, 55, 40, 30].map((h, i) => (
+                <div key={i} style={{ width: 6, height: h, borderRadius: 3, background: `rgba(167,139,250,${0.3 + (i % 3) * 0.2})`, animation: `float ${1 + (i % 3) * 0.3}s ease-in-out infinite ${i * 0.1}s` }} />
+              ))}
+            </div>
+            {/* Transcribed text */}
+            <div style={{ background: C.navy700, border: `1px solid rgba(167,139,250,0.15)`, borderRadius: 10, padding: '14px 16px', textAlign: 'left' }}>
+              <div style={{ fontFamily: 'DM Mono,monospace', fontSize: 9, color: '#a78bfa', letterSpacing: '0.1em', marginBottom: 8 }}>TRANSCRIBED</div>
+              <div style={{ fontSize: 14, color: C.text, lineHeight: 1.6 }}>
+                "I take Metformin 500mg twice daily for my diabetes, and a baby aspirin every morning..."
+              </div>
+            </div>
+            {/* Language badges */}
+            <div style={{ display: 'flex', gap: 8, justifyContent: 'center', marginTop: 16 }}>
+              {['🇺🇸 EN', '🇪🇸 ES', '🇫🇷 FR'].map(lang => (
+                <span key={lang} style={{ background: 'rgba(167,139,250,0.1)', border: '1px solid rgba(167,139,250,0.2)', color: '#a78bfa', fontSize: 11, padding: '4px 10px', borderRadius: 12, fontFamily: 'DM Mono,monospace' }}>{lang}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* ── Feature 3: E-Signature ── */}
+        <div ref={r3} style={{
+          display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: 48, alignItems: 'center',
+          opacity: v3 ? 1 : 0, transform: v3 ? 'translateY(0)' : 'translateY(32px)',
+          transition: 'all 0.6s ease 0.2s',
+        }}>
+          {/* Visual mockup */}
+          <div style={{ background: C.navy800, border: `1px solid rgba(74,222,128,0.2)`, borderRadius: 16, padding: 24, boxShadow: `0 0 60px rgba(74,222,128,0.06)` }}>
+            {/* Consent form preview */}
+            <div style={{ fontFamily: 'DM Mono,monospace', fontSize: 10, color: C.green, letterSpacing: '0.1em', marginBottom: 14 }}>CONSENT TO TREATMENT</div>
+            <p style={{ fontSize: 13, color: C.muted, lineHeight: 1.7, marginBottom: 18, paddingBottom: 18, borderBottom: `1px solid rgba(201,169,110,0.08)` }}>
+              I consent to medical examination and treatment by the healthcare providers at this practice. I understand that I have the right to refuse any treatment at any time...
+            </p>
+            {/* Checkboxes */}
+            {['I have read and understand this form', 'I consent to treatment', 'I acknowledge HIPAA Notice'].map((text, i) => (
+              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+                <div style={{ width: 18, height: 18, borderRadius: 3, background: 'rgba(74,222,128,0.2)', border: '1px solid rgba(74,222,128,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, color: C.green, flexShrink: 0 }}>✓</div>
+                <span style={{ fontSize: 13, color: C.muted }}>{text}</span>
+              </div>
+            ))}
+            {/* Signature area */}
+            <div style={{ marginTop: 20, border: `1px solid rgba(74,222,128,0.25)`, borderRadius: 10, padding: 16, background: 'rgba(10,22,40,0.8)' }}>
+              <div style={{ fontFamily: 'DM Mono,monospace', fontSize: 9, color: C.green, letterSpacing: '0.1em', marginBottom: 10 }}>PATIENT SIGNATURE</div>
+              <div style={{ height: 56, display: 'flex', alignItems: 'center' }}>
+                <svg viewBox="0 0 280 56" style={{ width: '100%' }}>
+                  <path d="M 20 40 Q 40 10 60 35 Q 80 55 100 30 Q 120 10 140 35 Q 155 50 170 30 Q 190 8 210 32 Q 225 48 240 35" fill="none" stroke={C.green} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.8" />
+                </svg>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 10 }}>
+                <div style={{ fontSize: 11, color: C.subtle }}>Maria García</div>
+                <div style={{ fontFamily: 'DM Mono,monospace', fontSize: 10, color: C.subtle }}>Apr 24, 2026 · 2:14 PM</div>
+              </div>
+            </div>
+            {/* Legal stamp */}
+            <div style={{ marginTop: 14, display: 'flex', alignItems: 'center', gap: 8, background: 'rgba(74,222,128,0.05)', border: '1px solid rgba(74,222,128,0.12)', borderRadius: 6, padding: '8px 12px', fontSize: 11, color: C.subtle }}>
+              <span style={{ color: C.green }}>🔒</span> E-SIGN Act Compliant · Timestamped · Legally Binding
+            </div>
+          </div>
+          {/* Copy */}
+          <div>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(74,222,128,0.08)', border: '1px solid rgba(74,222,128,0.2)', borderRadius: 20, padding: '5px 14px', fontSize: 10, color: C.green, fontFamily: 'DM Mono,monospace', letterSpacing: '0.1em', marginBottom: 20 }}>✍️ E-SIGN ACT COMPLIANT</div>
+            <h3 style={{ fontFamily: 'Rajdhani,sans-serif', fontWeight: 700, fontSize: 'clamp(28px,4vw,40px)', color: C.text, lineHeight: 1.1, marginBottom: 16 }}>
+              Consent forms signed<br /><span style={{ color: C.green }}>before they arrive.</span>
+            </h3>
+            <p style={{ color: C.muted, fontSize: 16, lineHeight: 1.8, marginBottom: 28 }}>
+              Patients sign directly on their phone screen with a finger. No printing. No clipboards. No scanning. Six built-in consent forms ready to go, plus a full drag-and-drop builder for your custom forms. Every signature is timestamped, stored securely, and legally binding.
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+              {[
+                ['Finger signature on any touch screen', C.green],
+                ['6 built-in forms + unlimited custom forms', C.green],
+                ['Timestamp, IP, and date recorded', C.green],
+                ['Stored in your EHR — no paper trail', C.green],
+                ['Admin form builder — no developer needed', C.cyan],
+              ].map(([text, color]) => (
+                <div key={text as string} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 14, color: C.muted }}>
+                  <span style={{ color: color as string, flexShrink: 0 }}>✓</span>{text}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  )
+}
+
 // ── How It Works ──────────────────────────────────────────────────────────
 function HowItWorks() {
   const steps = [
@@ -387,16 +623,17 @@ function HowItWorks() {
 // ── Comparison ────────────────────────────────────────────────────────────
 function Comparison() {
   const rows = [
-    { feature: 'Patient completes intake before visit', us: true, paper: false, other: false },
-    { feature: 'Direct EHR database sync', us: true, paper: false, other: '⚠️ API' },
-    { feature: 'E-signature consent forms', us: true, paper: false, other: true },
-    { feature: 'Trilingual EN/ES/FR', us: true, paper: false, other: false },
-    { feature: 'Mobile-first (no pinch-to-zoom)', us: true, paper: false, other: '⚠️ Partial' },
-    { feature: 'AI-powered intake summary', us: true, paper: false, other: false },
-    { feature: 'Works with scheduling + billing', us: true, paper: false, other: false },
-    { feature: 'Token link (no patient account)', us: true, paper: true, other: false },
-    { feature: '14-day free trial', us: true, paper: false, other: '⚠️ Demo only' },
-    { feature: 'Starting price', us: 'FREE', paper: '~$2/form', other: '$300+/mo' },
+    { feature: 'Patient completes intake before visit',   us: true,    paper: false,       other: false         },
+    { feature: 'AI assistant answers patient questions',  us: true,    paper: false,       other: false         },
+    { feature: 'Voice-to-text input (speak answers)',     us: true,    paper: false,       other: false         },
+    { feature: 'E-signature consent forms',               us: true,    paper: false,       other: true          },
+    { feature: 'Custom consent form builder',             us: true,    paper: false,       other: '⚠️ Extra cost'},
+    { feature: 'Direct EHR database sync',                us: true,    paper: false,       other: '⚠️ API'      },
+    { feature: 'Trilingual EN/ES/FR',                     us: true,    paper: false,       other: false         },
+    { feature: 'Mobile-first (no pinch-to-zoom)',         us: true,    paper: false,       other: '⚠️ Partial'  },
+    { feature: 'Token link (no patient account needed)',  us: true,    paper: true,        other: false         },
+    { feature: '14-day free trial',                       us: true,    paper: false,       other: '⚠️ Demo only'},
+    { feature: 'Starting price',                          us: 'FREE',  paper: '~$2/form',  other: '$300+/mo'    },
   ]
 
   return (
@@ -574,6 +811,7 @@ export default function Home() {
       <Hero />
       <StatsBar />
       <Features />
+      <PowerFeatures />
       <HowItWorks />
       <Comparison />
       <Testimonials />

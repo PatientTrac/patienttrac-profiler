@@ -8,6 +8,7 @@ import Terms           from './pages/Terms'
 import Hipaa           from './pages/Hipaa'
 import Contact         from './pages/Contact'
 import Admin           from './pages/Admin'
+import AdminPanel      from './pages/AdminPanel'
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
       <Route path="/hipaa"            element={<Hipaa />} />
       <Route path="/contact"          element={<Contact />} />
       <Route path="/admin"            element={<Admin />} />
+      <Route path="/admin/panel"      element={<AdminPanel />} />
       <Route path="*"                 element={<ProfilerApp />} />
     </Routes>
   )

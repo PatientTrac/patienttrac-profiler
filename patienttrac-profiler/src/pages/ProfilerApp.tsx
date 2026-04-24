@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import { createClient } from '@supabase/supabase-js'
+import AIAssistant from '../components/AIAssistant'
+import type { Lang } from '../types'
 
 const SUPABASE_URL  = 'https://mskormozwekezjmtcylv.supabase.co'
 const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1za29ybW96d2VrZXpqbXRjeWx2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY5NzMzMzAsImV4cCI6MjA5MjU0OTMzMH0.nO9Q31CZJWRSIieLdLYVMkdu5NDDWjf1z0TgwCjBpp0'
@@ -164,6 +166,13 @@ export default function ProfilerApp() {
   const [saving, setSaving] = useState(false)
   const [saveMsg, setSaveMsg] = useState('')
   const [patientId, setPatientId] = useState<number | null>(null)
+  const [showAI,    setShowAI]    = useState(false)
+  const [lang,      setLang]      = useState<Lang>(() => {
+    const nav = navigator.language?.slice(0, 2)
+    if (nav === 'es') return 'es'
+    if (nav === 'fr') return 'fr'
+    return 'en'
+  })
 
   // ── Form state for each section ──────────────────────────────────
   const [demo, setDemo] = useState({
@@ -951,6 +960,31 @@ export default function ProfilerApp() {
           )}
         </div>
       </div>
+
+      {/* ── AI Patient Assistant ── */}
+      {section !== 'welcome' && section !== 'complete' && (
+        showAI ? (
+          <AIAssistant
+            lang={lang}
+            currentSection={section.replace(/_/g, ' ')}
+            patientName={demo.first_name || undefined}
+            onClose={() => setShowAI(false)}
+          />
+        ) : (
+          <button
+            onClick={() => setShowAI(true)}
+            style={{
+              position: 'fixed', bottom: 24, right: 24, zIndex: 200,
+              background: '#c9a96e', color: '#020a14', border: 'none',
+              width: 56, height: 56, borderRadius: '50%', fontSize: 24,
+              cursor: 'pointer', boxShadow: '0 4px 24px rgba(201,169,110,0.4)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}
+            title={lang === 'es' ? 'Asistente IA' : lang === 'fr' ? 'Assistant IA' : 'AI Assistant'}>
+            🤖
+          </button>
+        )
+      )}
     </div>
   )
 }
